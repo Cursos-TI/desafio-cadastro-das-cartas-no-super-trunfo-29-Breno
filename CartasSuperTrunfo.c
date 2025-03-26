@@ -1,8 +1,6 @@
 #include <stdio.h>
-#include <locale.h>  // Para usar a função setlocale e definir a localidade
 
-// Definindo a estrutura para armazenar as informações de um pais
-//As structs são muito úteis para organizar dados relacionados de maneira estruturada e facilitar o trabalho de armazenar variáveis de diferentes tipos .
+
 struct Pais {
     char estado[100]; // Aloca um espaço para a string
     char codigo[6]; // Aloca um espaço para a string
@@ -11,15 +9,22 @@ struct Pais {
     float area;
     float pib;
     int pontosTuristicos;
+
 };
 
 int main() {
 
-        // Definindo a localidade para usar separação de km2 com virgulas
-setlocale(LC_NUMERIC, "pt_BR.UTF-8");
 
     // Criando as duas cartas (estruturas) para armazenar as informações dos países
     struct Pais pais1, pais2;
+
+    //variaveis de calculo
+
+    float habitantesKm2 = (float) pais1.populacao / pais1.area;
+    float rendaMediaPessoa = (float) pais1.pib / pais1.populacao;
+
+    float habitantesKm2_2 = (float) pais2.populacao / pais2.area;
+    float rendaMediaPessoa_2 = (float) pais2.pib / pais2.populacao;
 
 
     // Coletando informações sobre o primeiro pais
@@ -76,6 +81,9 @@ setlocale(LC_NUMERIC, "pt_BR.UTF-8");
 
      printf("\n"); //printf para que solte uma linha em branco para separar a exibição das informações do primeiro pais
 
+     // Calculando o número de habitantes por quilômetro quadrado e a renda média por pessoa
+
+
        // Imprimindo informações sobre o Primeiro pais
      printf("Informacoes do Primeiro Pais: \n\n");
 
@@ -85,7 +93,9 @@ setlocale(LC_NUMERIC, "pt_BR.UTF-8");
      printf("Numero de Habitantes da Cidade: %d \n",pais1.populacao);
      printf("Tamanho da Area: %.2f \n",pais1.area);
      printf("Pib da Cidade: %.2f \n",pais1.pib);
-     printf("Numero de Pontos Turisticos: %d \n\n",pais1.pontosTuristicos);//usei dois \n para saltar uma liha em branco ao exibir o printf para informações do segundo pais
+     printf("Numero de Pontos Turisticos: %d \n",pais1.pontosTuristicos);//usei dois \n para saltar uma liha em branco ao exibir o printf para informações do segundo pais
+     printf("Numero de habitantes por quilumetro quadrado: %.2f \n", habitantesKm2);
+     printf ("Riqueza media por pessoa na cidade: %.2f \n\n", rendaMediaPessoa);
 
        // Imprimindo informações sobre o Segundo pais
      printf("Informacoes do Segundo Pais: \n\n");
@@ -97,7 +107,8 @@ setlocale(LC_NUMERIC, "pt_BR.UTF-8");
      printf("Tamanho da Area: %.2f \n",pais2.area);
      printf("Pib da Cidade: %.2f \n",pais2.pib);
      printf("Numero de Pontos Turisticos: %d \n",pais2.pontosTuristicos);
+     printf("Numero de habitantes por quilometro quadrado: %.2f \n", habitantesKm2);
+     printf ("Riqueza media por pessoa na cidade: %.2f \n", rendaMediaPessoa);
 
      return 0;
 }
-
