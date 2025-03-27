@@ -5,10 +5,18 @@
 // Função para ler números com separadores de milhar
 float lerNumeroComSeparador() {
     char entrada[100];
+    /*Essa linha cria um array de caracteres entrada, com capacidade para armazenar até
+     100 caracteres.Será usado para armazenar o número que o usuário digitar.*/
+
     fgets(entrada, sizeof(entrada), stdin);
+    /*Fgets é usada para ler uma linha de entrada do usuário.Ela lê até 99 caracteres
+     (devido ao tamanho do array) e inclui (padrão do fgets) o caractere de nova linha \n
+      no final da entrada. Stdin indica que estamos lendo a entrada padrão (o teclado)*/
 
     // Remove o caractere de nova linha do fgets
     entrada[strcspn(entrada, "\n")] = '\0';
+    /*entrada[strcspn(entrada, "\n")] = '\0'; usa esse índice para substituir o \n por
+    um caractere nulo ('\0'), efetivamente terminando a string antes do \n, removendo-o.*/
 
     // Usa strtof para converter a string diretamente em número float
     return strtof(entrada, NULL);
@@ -34,6 +42,8 @@ int main() {
 
     printf("digite o nome do estado: \n");
     fgets(pais1.estado, sizeof(pais1.estado), stdin);
+    /* Lê uma linha de texto do usuário e armazena no campo 'estado' da estrutura 'pais1',
+    Sizeof garante que o número de caracteres não ultrapasse o tamanho do array 'estado'*/
 
     printf("Digite a primeira letra do estado seguida de um numero de 01 a 04: \n");
     fgets(pais1.codigo, sizeof(pais1.codigo), stdin);
@@ -43,6 +53,8 @@ int main() {
 
     printf("digite o numero de habitantes da cidade: \n");
     pais1.populacao = lerNumeroComSeparador();
+    /* Chama função(lerNumeroComSeparador)para ler populacao da cidade(com separadores de milhar)
+    e converte a entrada de string para float, atribuindo à variável pais1.populacao.*/
 
     printf("Digite a area da cidade em quilometros quadrados: \n");
     pais1.area = lerNumeroComSeparador(); // Leitura de área com separador de milhar
