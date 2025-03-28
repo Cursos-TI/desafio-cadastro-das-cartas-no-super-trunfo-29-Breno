@@ -12,7 +12,7 @@ int main() {
         int populacao;
         float area;
         float pib;
-        unsigned long int pontosTuristicos;
+        unsigned long int pontosTuristicos;/*alterado para unsigned long int*/
     };
 
     struct Pais pais1, pais2;
@@ -116,34 +116,81 @@ int main() {
     printf("Super Poder 2: %.2f \n\n",superpoder2);
 
     // Comparação de cada atributo e exibição do vencedor
-    printf("Comparando Pais1 e Pais2 (eles são como cartas):\n\n");
-                                            
+    printf("Comparando Pais1 e Pais2 (eles sao como cartas):\n\n");
+
     /* 0 (Pais 1) 1 (Pais 2)
     Se pais1 > pais2 for verdadeiro, o valor impresso será 1.
-    Se o valor de pais1 < pais2, o valor impresso será 0*/                                        
-    
-    printf("1. Comparando Populacao (): %lu (Pais 1) -%lu (Pais 2)\n", pais1.populacao > pais2.populacao,
-    pais1.populacao < pais2.populacao);
-    
-    printf("2. Comparando Area: %d (Pais 1) -%d (Pais 2)\n", pais1.area > pais2.area,
-    pais1.area < pais2.area);
-    
-    printf("3. Comparando PIB: %d (Pais 1) -%d (Pais 2)\n", pais1.pib > pais2.pib,
-    pais1.pib < pais2.pib);
-    
-    printf("4. Comparando Pontos Turisticos: %d (Pais 1) -%d (Pais 2)\n",
-    pais1.pontosTuristicos > pais2.pontosTuristicos, pais1.pontosTuristicos < pais2.pontosTuristicos);
-    
-    printf("5. Comparando PIB per Capita: %d (Pais 1) -%d (Pais 2)\n", pibPerCapita1 > pibPerCapita2,
-    pibPerCapita1 < pibPerCapita2);
-    
-    printf("6. Comparando Densidade Populacional (menor vence): %d (Pais 1) -%d (Pais 2)\n",
-    densidadePopulacional1 < densidadePopulacional2,densidadePopulacional1 > densidadePopulacional2);
-    
-    printf("7. Comparando Super Poder: %d (Pais 1) -%d (Pais 2)\n", superPoder1 > superPoder2, 
-    superPoder1 < superPoder2);
+    Se o valor de pais1 < pais2, o valor impresso será 0*/
 
 
+    // Comparando População
+    if (pais1.populacao > pais2.populacao) {
+    // Se a população do primeiro país (pais1.populacao) for maior que a do segundo país (pais2.populacao)
+    // A mensagem "Pais 1 venceu" será impressa, indicando que o primeiro país tem uma população maior
+        printf("1. Comparando Populacao: Pais 1 venceu\n");
+    } else if (pais1.populacao < pais2.populacao) {
+    // Caso contrário, se a população do primeiro país (pais1.populacao) for menor que a do segundo país (pais2.populacao)
+    // A mensagem "Pais 2 venceu" será impressa, indicando que o segundo país tem uma população maior
+        printf("1. Comparando Populacao: Pais 2 venceu\n");
+    } else {
+    // Se a população dos dois países for igual, ou seja, se pais1.populacao for igual a pais2.populacao
+    // A mensagem "Empate" será impressa, indicando que os dois países têm o mesmo número de habitantes
+        printf("1. Comparando Populacao: Empate\n");
+    }
+
+    // Comparando Área
+    if (pais1.area > pais2.area) {
+        printf("2. Comparando Area: Pais 1 venceu\n");
+    } else if (pais1.area < pais2.area) {
+        printf("2. Comparando Area: Pais 2 venceu\n");
+    } else {
+        printf("2. Comparando Area: Empate\n");
+    }
+
+    // Comparando PIB
+    if (pais1.pib > pais2.pib) {
+        printf("3. Comparando PIB: Pais 1 venceu\n");
+    } else if (pais1.pib < pais2.pib) {
+        printf("3. Comparando PIB: Pais 2 venceu\n");
+    } else {
+        printf("3. Comparando PIB: Empate\n");
+    }
+
+    // Comparando Pontos Turísticos
+    if (pais1.pontosTuristicos > pais2.pontosTuristicos) {
+        printf("4. Comparando Pontos Turisticos: Pais 1 venceu\n");
+    } else if (pais1.pontosTuristicos < pais2.pontosTuristicos) {
+        printf("4. Comparando Pontos Turisticos: Pais 2 venceu\n");
+    } else {
+        printf("4. Comparando Pontos Turisticos: Empate\n");
+    }
+
+    // Comparando PIB per Capita
+    if (pibPerCapita1 > pibPerCapita2) {
+        printf("5. Comparando PIB per Capita: Pais 1 venceu\n");
+    } else if (pibPerCapita1 < pibPerCapita2) {
+        printf("5. Comparando PIB per Capita: Pais 2 venceu\n");
+    } else {
+        printf("5. Comparando PIB per Capita: Empate\n");
+    }
+
+    // Comparando Densidade Populacional (menor vence) usado '<' pois o pais com menor densidade vence
+    if (densidadePopulacional1 < densidadePopulacional2) {
+        printf("6. Comparando Densidade Populacional: Pais 1 venceu\n");
+    } else if (densidadePopulacional1 > densidadePopulacional2) {
+        printf("6. Comparando Densidade Populacional: Pais 2 venceu\n");
+    } else {
+        printf("6. Comparando Densidade Populacional: Empate\n");
+    }
+
+    // Comparando Super Poder
+    if (superpoder1 > superpoder2) {
+        printf("7. Comparando Super Poder: Pais 1 venceu\n");
+    } else if (superpoder1 < superpoder2) {
+        printf("7. Comparando Super Poder: Pais 2 venceu\n");
+    } else {
+        printf("7. Comparando Super Poder: Empate\n");
+    }
 
 
     return 0;
